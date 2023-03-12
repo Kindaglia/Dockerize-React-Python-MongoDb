@@ -16,6 +16,7 @@ docker compose up
 - Add Name app
 - In Amazon Machine Image select Ubuntu
 - Name key private: create your key and save key .pem
+![Screenshot](img/istance.png)
 
 ## After creation
 - Go to istance EC2
@@ -55,11 +56,15 @@ sudo apt install git
 
 - Clone [this](https://github.com/Kindaglia/Dockerize-React-Python-MongoDb.git) repository
 ```
-mkdir DocerApp
+mkdir dockerApp
+
+cd dockerApp
 
 git clone https://github.com/Kindaglia/Dockerize-React-Python-MongoDb.git
 
+cd Dockerize-React-Python-MongoDb/
+
 cd FlaskApp
 
-docker compose up
+sudo docker compose up
 ```
