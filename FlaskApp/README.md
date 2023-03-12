@@ -16,7 +16,7 @@ docker compose up
 - Add Name app
 - In Amazon Machine Image select Ubuntu
 - Name key private: create your key and save key .pem
-![Screenshot](img/istance.png)
+![](/img/istance.png?raw=true)
 
 ## After creation
 - Go to istance EC2
