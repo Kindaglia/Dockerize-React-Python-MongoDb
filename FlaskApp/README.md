@@ -30,6 +30,8 @@ Test net with  IPv4 pubblic of your istance:
 ```
 ping <ip address> 
 ```
+![](/img/pingCommand.png?raw=true)
+
 
 ## Connect to Machine with ssh and VScode
 - install [this](https://code.visualstudio.com/docs/remote/ssh-tutorial) extension for VScode
@@ -68,3 +70,8 @@ cd FlaskApp
 
 sudo docker compose up
 ```
+
+Test with get method on your IPv4
+![](/img/connection.png?raw=true)
+
+
