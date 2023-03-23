@@ -1,11 +1,29 @@
-version: "3.6"
+version: '3.8'
+
 services:
-  app:
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminpassword
+    volumes:
+      - mongodb_data:/data/db
+
+
+  flask_app:
     build: 
       context: ./Backend #path dockerfile 
       dockerfile: Dockerfile #nome Dokcerfile
-    command: python -u app.py
+    environment:
+      MONGODB_HOST: mongodb
+      MONGODB_USERNAME: admin
+      MONGODB_PASSWORD: adminpassword
+      MONGODB_DBNAME: testdb
     ports:
-      - "80:80"
-
-
+      - "5000:5000"
+    depends_on:
+      - mongodb
+      
+volumes:
+  mongodb_data:
