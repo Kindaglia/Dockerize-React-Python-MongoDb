@@ -2,9 +2,11 @@ from flask import Flask, jsonify, request
 from pymongo import MongoClient
 import os
 from bson import ObjectId
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+# cors
+CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 
 client = MongoClient(
     host=os.environ["MONGODB_HOST"],
