@@ -68,6 +68,19 @@ def get_all_documenti():
     # restituzione dei documenti come risposta JSON
     return jsonify(documents)
 
+@app.route('/documento/<id>', methods=['DELETE'])
+def delete_documento_by_id(id):
+    # verifica che l'id sia valido
+    if not ObjectId.is_valid(id):
+        return jsonify({'error': 'invalid ObjectId'}), 400
+    # rimozione del documento dal database
+    result = db.documenti.delete_one({'_id': ObjectId(id)})
+    # verifica che il documento sia stato rimosso
+    if result.deleted_count == 0:
+        return jsonify({'error': 'documento non trovato'}), 404
+    # restituzione di una risposta vuota con codice 204
+    return '', 204
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
