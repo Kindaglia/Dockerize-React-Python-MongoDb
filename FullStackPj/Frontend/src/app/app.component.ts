@@ -16,21 +16,21 @@ export class AppComponent {
   }
 
   fetchDocuments() {
-    this.http.get<any[]>('http://localhost:5000/documento').subscribe((data) => {
+    this.http.get<any[]>('http://host.docker.internal:5000/documento').subscribe((data) => {
       this.documents = data;
       console.log(data);
     });
   }
 
   addDocument() {
-    this.http.post('http://localhost:5000/documento', this.newDocument).subscribe(() => {
+    this.http.post('http://host.docker.internal:5000/documento', this.newDocument).subscribe(() => {
       this.fetchDocuments();
       this.newDocument = {}; // reset the form
     });
   }
 
   deleteDocument(id: string) {
-    this.http.delete(`http://localhost:5000/documento/${id}`).subscribe(() => {
+    this.http.delete(`http://host.docker.internal:5000/documento/${id}`).subscribe(() => {
       this.fetchDocuments();
     });
   }

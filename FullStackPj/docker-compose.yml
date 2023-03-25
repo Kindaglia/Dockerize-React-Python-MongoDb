@@ -10,11 +10,10 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-
   flask_app:
     build: 
-      context: ./Backend #path dockerfile 
-      dockerfile: Dockerfile #nome Dokcerfile
+      context: ./Backend
+      dockerfile: Dockerfile
     environment:
       MONGODB_HOST: mongodb
       MONGODB_USERNAME: admin
@@ -24,6 +23,15 @@ services:
       - "5000:5000"
     depends_on:
       - mongodb
-      
+
+  frontend_app:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - flask_app
+
 volumes:
   mongodb_data:
