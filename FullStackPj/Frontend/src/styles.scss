@@ -1,0 +1,24 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card {
+  background-color: rgba(187, 187, 187, 0.1);
+}
+
+.form-control:focus {
+  border-color: #3f51b5;
+  box-shadow: none;
+}
+
+.btn-custom {
+  background-color: #303f9f;
+  color: #ffffff;
+}
+
+.btn-custom:hover {
+  background-color: #5c6bc0;
+  color: #ffffff;
+}
