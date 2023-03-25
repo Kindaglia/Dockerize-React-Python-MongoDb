@@ -1,6 +1,25 @@
-<h2>Documenti:</h2>
+<h1>{{ title }}</h1>
+
+<form (submit)="addDocument()">
+  <label>
+    Age:
+    <input type="number" name="age" [(ngModel)]="newDocument.age" required>
+  </label>
+  <label>
+    City:
+    <input type="text" name="city" [(ngModel)]="newDocument.city" required>
+  </label>
+  <label>
+    Name:
+    <input type="text" name="name" [(ngModel)]="newDocument.name" required>
+  </label>
+  <button type="submit">Aggiungi documento</button>
+</form>
+
 <ul>
   <li *ngFor="let document of documents">
-    {{ document.name }} - {{ document.age }} - {{ document.city }}
+    <h2>{{ document.name }}</h2>
+    <p>Age: {{ document.age }}, City: {{ document.city }}</p>
+    <button (click)="deleteDocument(document._id)">Elimina documento</button>
   </li>
 </ul>
